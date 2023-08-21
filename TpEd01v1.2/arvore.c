@@ -262,11 +262,11 @@ int printEmNivel(No *vet, int x){
     No *aux;
     for(int i = 0; i < x; i++){
         printf("\nNivel %i:\n", i + 1);
-        aux = vet[i].primo;
-        while(aux != NULL){
+        aux (aux != NULL){
             printf("(%i, %i) ", aux->pos.y, aux->pos.x - 1);
             aux = aux->primo;
-        }
+        }= vet[i].primo;
+        while
 
     }
     return 1;

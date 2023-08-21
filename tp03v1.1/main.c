@@ -11,11 +11,13 @@ int main(){
     char opcao=' ';
     int valida=1;
     int achou = 0;
+    int altArvore = 0;
     Percurso *pTra;
     
     Posicao *inicio = alocaPos();//aloca o inicio
     Posicao *saida = alocaPos();//aloca a posição para saida
     Posicao *mause = alocaPos();//aloca uma posição para o rato
+    No *vet;
     Labirinto *pLab;
     No *arvore;
     
@@ -32,13 +34,16 @@ int main(){
     arvoreInicia(&arvore);
     arvoreInsere(&arvore, *mause);
     valida = achaSaidaArvore(pLab, saida, mause, pTra,0, inicio, achou, &arvore);
-    arvorePesquisaMenor(&arvore, pTra, 0, saida);
-    arvorePesquisaMaior(&arvore, pTra, 0, saida);
+    arvorePesquisaMenor(&arvore, pTra, 0, saida);//Pesquisa o menor caminho na arvore até a saida
+    arvorePesquisaMaior(&arvore, pTra, 0, saida);//Pesquisa o maior caminho na arvore até a saida
+    altArvore = alturaArvore(arvore);//acha a altura da arvore
+    vet = alocaVetor(altArvore);//aloca um vetor na altura da arvore
+    organizaEmNiveis(vet, arvore, 0);
     
     //impressão da saida
     if(valida == 1){
 
-        pLab = imprimepercursoNolabirinto(pLab,pTra, mause);
+        pLab = imprimepercursoNolabirinto(pLab,pTra, mause,vet,altArvore);
         
     }else if(valida != 1){
         

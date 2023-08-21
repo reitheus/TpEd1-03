@@ -11,6 +11,7 @@ typedef struct no{
     struct no* esquerda;
     struct no* cima;
     struct no* baixo;
+    struct no* primo;
 }No;
 
 int arvoreInicia(No **pRaiz);
@@ -19,9 +20,16 @@ int arvoreInsere(No **ppRaiz, Posicao pos);
 
 int arvoreLibera(No **node);
 
+No* alocaVetor(No **vet);
+
+int organizaEmNiveis(No *vet, No *node, int nivel);
+
 int arvorePesquisaMenor(No **ppRaiz, Percurso *pTra, int i, Posicao *saida);
 
 int arvorePesquisaMaior(No **node, Percurso *pTra, int i, Posicao *saida);
 
+int alturaArvore(No *node);
+
+int printEmNivel(No *vet, int x);
 
 #endif//arvore.h

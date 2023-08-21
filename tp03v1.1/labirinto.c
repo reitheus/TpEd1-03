@@ -173,7 +173,7 @@ int achaSaidaArvore(Labirinto* pLab, Posicao *saida, Posicao *mause, Percurso *p
 
 
 //impressão da saida de acordo com a opção de entrada
-Labirinto* imprimepercursoNolabirinto(Labirinto *plab,Percurso *pTra, Posicao *mause){
+Labirinto* imprimepercursoNolabirinto(Labirinto *plab,Percurso *pTra, Posicao *mause, No *vet, int altura){
     plab->mapa[mause->y][mause->x] = 'M';
     Posicao pos;
 
@@ -202,17 +202,10 @@ Labirinto* imprimepercursoNolabirinto(Labirinto *plab,Percurso *pTra, Posicao *m
         printLab(plab);
     }
 
-
-    
     //imprime o menor caminho feito
     if(plab->op == 'f' || plab->op == 'F'){
-    
-        printf("%d\n",pTra->mcom+1);
-        for(int i = 0;i < pTra->mcom;i++){
-            Posicao pos = pTra->mCaminho[i];
-            printf("%d, %d\n",pos.x,pos.y-1);
-        }
-        
+        printEmNivel(vet, altura);
+        printf("\n");
     }
     
     return plab;

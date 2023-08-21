@@ -27,6 +27,6 @@ void posMause(Labirinto*, Posicao* );
 
 int achaSaidaArvore(Labirinto* pLab, Posicao *saida, Posicao *mause, Percurso *pTra, int i,Posicao *inicio, int achou, No **node);
 
-Labirinto* imprimepercursoNolabirinto(Labirinto* ,Percurso* , Posicao*);
+Labirinto* imprimepercursoNolabirinto(Labirinto* ,Percurso* , Posicao*,No* ,int);
 
 #endif//labirinto.h
